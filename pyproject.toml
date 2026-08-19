@@ -1,0 +1,27 @@
+[project]
+name = "browser-agent"
+version = "0.1.0"
+description = "Text-only browser-control agent driven by your own OpenAI/Claude key"
+requires-python = ">=3.10"
+dependencies = [
+    "playwright>=1.44",
+    "anthropic>=0.39",
+    "openai>=1.40",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+browser-agent = "browser_agent.__main__:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["browser_agent*"]
+
+[tool.setuptools.package-data]
+browser_agent = ["prompts/*.md", "skills/*.md"]
